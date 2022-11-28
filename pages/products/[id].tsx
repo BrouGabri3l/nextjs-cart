@@ -1,7 +1,7 @@
 import { GetStaticProps, InferGetStaticPropsType } from "next";
 import Image from "next/image";
 import { ParsedUrlQuery } from "querystring";
-import { useProduct } from "../../hooks/useCart";
+import { useCart } from "../../hooks/useCart";
 import { Product } from "../../types/ProductType";
 
 interface IParams extends ParsedUrlQuery {
@@ -10,7 +10,7 @@ interface IParams extends ParsedUrlQuery {
 export default function ProductPage({
   product,
 }: InferGetStaticPropsType<typeof getStaticProps>) {
-  const { addToCart } = useProduct();
+  const { addToCart } = useCart();
   return (
     <div className="border bg-gray-100 border-gray-200 rounded  flex flex-row items-stretch justify-around">
       <div className="pr-4">

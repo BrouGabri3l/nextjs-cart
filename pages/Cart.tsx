@@ -1,10 +1,10 @@
 import { NextPage } from "next";
 import CartCard from "../components/CartCard/CartCard";
 import CartCheckout from "../components/CartCheckout/CartCheckout";
-import { useProduct } from "../hooks/useCart";
+import { useCart } from "../hooks/useCart";
 
 const Cart: NextPage = () => {
-  const { cartProducts } = useProduct();
+  const { cartProducts } = useCart();
   return (
     <>
       <h1>Shopping Cart</h1>
@@ -14,7 +14,7 @@ const Cart: NextPage = () => {
             return <CartCard key={key} product={product} />;
           })}
         </ul>
-        <CartCheckout />
+        <CartCheckout products={cartProducts} />
       </main>
     </>
   );
